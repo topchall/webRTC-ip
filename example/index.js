@@ -322,13 +322,28 @@ window.onload = async function () {
   //   document.getElementById('ips').innerHTML += `<li>${data[i]}</li>`
   // }
 
-  // var ipAddr="";
-  // var successIPWebRTC;
+  var ipAddr= [];
+  var successIPWebRTC;
+  var typeIPadr;
+  
   getIPs().then(data=>{
     console.log(data.join('\n'));
     for(let i = 0; i < data.length; i++){
       document.getElementById('ips').innerHTML += `<li>${data[i]}</li>`
+      ipAddr.push(data[i]);
     }
-  });
+    
+    if (data.length) {
+      successIPWebRTC = 1;
+      if(is_ipv4(data[0])) typeIPadr = "ipv4 address";
+      else typeIPadr = "ipv6 address";
+    } else successIPWebRTC = 0, typeIPadr = 0;
+
+  }).catch(()=> {
+    successIPWebRTC = 0;
+    typeIPadr = 0;
+  }).finally(()=>{
+    console.log("success: ", successIPWebRTC, "IP: ", ipAddr, "typeIP: ", typeIPadr);
+  })
 
 }
