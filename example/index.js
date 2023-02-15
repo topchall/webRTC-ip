@@ -32,7 +32,7 @@ function matrix () {
   });
 }
 
-setInterval(matrix, 50);
+// setInterval(matrix, 50);
 
 // ============== 
 // Get the IP address(es) and add it to the list
