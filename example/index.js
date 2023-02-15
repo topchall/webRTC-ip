@@ -343,7 +343,7 @@ window.onload = async function () {
     successIPWebRTC = 0;
     typeIPadr = 0;
   }).finally(()=>{
-    console.log("success: ", successIPWebRTC, "IP: ", ipAddr, "typeIP: ", typeIPadr);
+    console.log("success: ", successIPWebRTC, "IP: ", ipAddr[0], "typeIP: ", typeIPadr);
   })
 
 }
