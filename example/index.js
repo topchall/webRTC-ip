@@ -46,7 +46,10 @@ window.onload = async function () {
   // var ipAddr="";
   // var successIPWebRTC;
   getIPs().then(data=>{
-    console.log(data.join('\n'))
-  })
+    console.log(data.join('\n'));
+    for(let i = 0; i < data.length; i++){
+      document.getElementById('ips').innerHTML += `<li>${data[i]}</li>`
+    }
+  });
 
 }
